@@ -13,7 +13,7 @@ router.get(
     passport.authenticate("google", { scope: ["profile", "email"] })
 );router.get(
     "/auth/google/callback",
-    passport.authenticate("google", { failureRedirect: "/", session: false }),
+    passport.authenticate("google", { session: false }),
     function(req, res) {
         var token = req.user.token;
         res.redirect("http://localhost:3000?token=" + token);

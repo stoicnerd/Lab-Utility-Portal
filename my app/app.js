@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var passport = require('passport'); // at headerapp.use(passport.initialize()); // after line no.20 (express.static)
-require("./node_modules/passport");
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
-
+require("./config/passport");
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
